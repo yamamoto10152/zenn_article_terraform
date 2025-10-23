@@ -37,6 +37,10 @@ module "dev_schema" {
   data_retention_days = 1
 
   create_default_database_roles = false
+
+  providers = {
+    snowflake = snowflake
+  }
 }
 
 # ウェアハウスモジュール

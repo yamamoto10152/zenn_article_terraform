@@ -24,7 +24,7 @@ jobs:
     timeout-minutes: 10
     strategy:
       matrix:
-        environment: [dev, prod]
+        environment: [dev]
     
     steps:
     - name: Checkout
