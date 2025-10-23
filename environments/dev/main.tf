@@ -18,29 +18,73 @@ provider "snowflake" {
   authenticator     = "PROGRAMMATIC_ACCESS_TOKEN"
 }
 
-# データベースモジュール
+# データベース
 module "dev_database" {
   source = "../../modules/database"
   
   database_name = "YAMAMOTO_TF_FIRST_DATABASE"
 }
 
-# スキーマモジュール
-module "dev_schema" {
-  source = "github.com/getindata/terraform-snowflake-schema"
+# スキーマ
+resource "snowflake_schema" "schema" {
+  database            = module.dev_database.database_name
+  name                = "YAMAMOTO_TF_FIRST_SCHEMA"
+}
 
-  name     = "YAMAMOTO_TF_FIRST_SCHEMA"
-  database = module.dev_database.database_name
+resource "snowflake_sequence" "sequence" {
+  database = snowflake_schema.schema.database
+  schema   = snowflake_schema.schema.name
+  name     = "sequence"
+}
 
-  is_managed          = false
-  is_transient        = false
-  data_retention_days = 1
+# テーブル
+resource "snowflake_table" "table" {
+  database                    = snowflake_schema.schema.database
+  schema                      = snowflake_schema.schema.name
+  name                        = "TF_TB_F"
+  comment                     = "A table."
+  cluster_by                  = ["to_date(DATE)"]
+  change_tracking             = false
 
-  create_default_database_roles = false
+  column {
+    name     = "id"
+    type     = "int"
+    nullable = true
 
-  providers = {
-    snowflake = snowflake
+    default {
+      sequence = snowflake_sequence.sequence.fully_qualified_name
+    }
   }
+
+  column {
+    name     = "identity"
+    type     = "NUMBER(38,0)"
+    nullable = true
+
+    identity {
+      start_num = 1
+      step_num  = 3
+    }
+  }
+
+  column {
+    name     = "data"
+    type     = "text"
+    nullable = false
+    collate  = "en-ci"
+  }
+
+  column {
+    name = "DATE"
+    type = "TIMESTAMP_NTZ(9)"
+  }
+
+  column {
+    name    = "extra"
+    type    = "VARIANT"
+    comment = "extra data"
+  }
+
 }
 
 # ウェアハウスモジュール
