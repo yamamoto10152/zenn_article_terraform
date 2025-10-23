@@ -19,15 +19,19 @@ provider "snowflake" {
 }
 
 # データベース
-module "dev_database" {
-  source = "../../modules/database"
+# module "primary" {
+#   source = "../../modules/database"
   
-  database_name = "YAMAMOTO_TF_FIRST_DATABASE"
+#   database_name = "YAMAMOTO_TF_FIRST_DATABASE"
+# }
+resource "snowflake_database" "primary" {
+  name = "YAMAMOTO_TF_FIRST_DATABASE"
 }
 
 # スキーマ
 resource "snowflake_schema" "schema" {
-  database            = module.dev_database.database_name
+  # database            = module.primary.database_name
+  database            = snowflake_database.primary.name
   name                = "YAMAMOTO_TF_FIRST_SCHEMA"
 }
 
@@ -88,12 +92,12 @@ resource "snowflake_table" "table" {
 }
 
 # ウェアハウスモジュール
-module "warehouse" {
-  source = "../../modules/warehouse"
+# module "warehouse" {
+#   source = "../../modules/warehouse"
   
-  warehouse_name = "YAMAMOTO_TF_FIRST_WAREHOUSE"
-  warehouse_size = var.warehouse_size
-  auto_suspend = var.auto_suspend
-  auto_resume = var.auto_resume
-  warehouse_type = var.warehouse_type
-}
+#   warehouse_name = "YAMAMOTO_TF_FIRST_WAREHOUSE"
+#   warehouse_size = var.warehouse_size
+#   auto_suspend = var.auto_suspend
+#   auto_resume = var.auto_resume
+#   warehouse_type = var.warehouse_type
+# }
