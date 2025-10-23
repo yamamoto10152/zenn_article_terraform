@@ -1,0 +1,1 @@
+# Zenn用Snowflake Terraform Provider
