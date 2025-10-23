@@ -1,5 +1,5 @@
-# Snowflakeデータベースモジュールの変数定義
-variable "environment" {
-  description = "Environment name (dev, prod)"
+
+variable "database_name" {
+  description = "Database name"
   type        = string
 }

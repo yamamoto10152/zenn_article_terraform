@@ -7,7 +7,7 @@ variable "environment" {
 variable "warehouse_size" {
   description = "Size of the Snowflake warehouse"
   type        = string
-  default     = "SMALL"
+  default     = "XSMALL"
   validation {
     condition = contains(["X-SMALL", "SMALL", "MEDIUM", "LARGE", "X-LARGE", "2X-LARGE", "3X-LARGE", "4X-LARGE"], var.warehouse_size)
     error_message = "Warehouse size must be one of: X-SMALL, SMALL, MEDIUM, LARGE, X-LARGE, 2X-LARGE, 3X-LARGE, 4X-LARGE."
@@ -74,24 +74,6 @@ variable "user_password" {
   description = "Password for the Snowflake user"
   type        = string
   sensitive   = true
-}
-
-variable "first_name" {
-  description = "First name of the Snowflake user"
-  type        = string
-  default     = ""
-}
-
-variable "last_name" {
-  description = "Last name of the Snowflake user"
-  type        = string
-  default     = ""
-}
-
-variable "email" {
-  description = "Email address of the Snowflake user"
-  type        = string
-  default     = ""
 }
 
 variable "must_change_password" {

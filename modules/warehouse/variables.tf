@@ -1,6 +1,6 @@
 # Snowflakeウェアハウスモジュールの変数定義
-variable "environment" {
-  description = "Environment name (dev, prod)"
+variable "warehouse_name" {
+  description = "Warehouse name"
   type        = string
 }
 
@@ -68,36 +68,6 @@ variable "statement_timeout_in_seconds" {
   description = "Statement timeout in seconds"
   type        = number
   default     = 3600
-}
-
-variable "user_password" {
-  description = "Password for the Snowflake user"
-  type        = string
-  sensitive   = true
-}
-
-variable "first_name" {
-  description = "First name of the Snowflake user"
-  type        = string
-  default     = ""
-}
-
-variable "last_name" {
-  description = "Last name of the Snowflake user"
-  type        = string
-  default     = ""
-}
-
-variable "email" {
-  description = "Email address of the Snowflake user"
-  type        = string
-  default     = ""
-}
-
-variable "must_change_password" {
-  description = "Whether the user must change their password on next login"
-  type        = bool
-  default     = false
 }
 
 variable "disabled" {
