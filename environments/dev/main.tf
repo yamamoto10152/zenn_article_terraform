@@ -35,12 +35,6 @@ resource "snowflake_schema" "schema" {
   name                = "YAMAMOTO_TF_FIRST_SCHEMA"
 }
 
-resource "snowflake_sequence" "sequence" {
-  database = snowflake_schema.schema.database
-  schema   = snowflake_schema.schema.name
-  name     = "sequence"
-}
-
 # テーブル
 resource "snowflake_table" "table" {
   database                    = snowflake_schema.schema.database
@@ -54,10 +48,6 @@ resource "snowflake_table" "table" {
     name     = "id"
     type     = "int"
     nullable = true
-
-    default {
-      sequence = snowflake_sequence.sequence.fully_qualified_name
-    }
   }
 
   column {
