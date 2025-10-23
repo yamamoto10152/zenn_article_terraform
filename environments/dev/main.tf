@@ -16,6 +16,9 @@ provider "snowflake" {
   token             = var.snowflake_password
   role              = var.snowflake_role
   authenticator     = "PROGRAMMATIC_ACCESS_TOKEN"
+  
+  # プレビュー機能を有効化
+  preview_features_enabled = ["snowflake_table_resource"]
 }
 
 # データベース
