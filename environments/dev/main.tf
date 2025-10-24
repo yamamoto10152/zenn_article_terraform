@@ -11,7 +11,7 @@ terraform {
     bucket         = "yamamoto-terraform-state-bucket"
     key            = "snowflake-state/dev/zennarticle.tfstate"
     region         = "ap-northeast-1"
-    dynamodb_table = "yamamoto-terraform-state-lock-table"
+    dynamodb_table = "yamamoto-terraform-state-lock-table-dev"
     encrypt        = true
   }  
 }
