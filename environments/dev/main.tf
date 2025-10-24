@@ -9,7 +9,7 @@ terraform {
   }
   backend "s3" {
     bucket         = "yamamoto-terraform-state-bucket"
-    key            = "snowflake-state/snowflake.tfstate"
+    key            = "snowflake-state/dev/zennarticle.tfstate"
     region         = "ap-northeast-1"
     dynamodb_table = "yamamoto-terraform-state-lock-table"
     encrypt        = true
@@ -17,6 +17,7 @@ terraform {
 }
 
 provider "snowflake" {
+  alias             = "zennarticle"
   organization_name = var.snowflake_organization_name
   account_name      = var.snowflake_account_name
   user              = var.snowflake_user
