@@ -2,7 +2,7 @@
 resource "snowflake_table" "table" {
   database                    = snowflake_schema.schema.database
   schema                      = snowflake_schema.schema.name
-  name                        = "TF_TB_F"
+  name                        = "TF_TB_A"
   comment                     = "A table."
   cluster_by                  = ["to_date(DATE)"]
   change_tracking             = false
