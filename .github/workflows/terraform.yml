@@ -57,12 +57,12 @@ jobs:
       run: terraform fmt -recursive
       working-directory: ./environments/${{ matrix.environment }}
 
-    # - name: Terraform Providers
-    #   run: terraform providers
-    #   working-directory: ./environments/${{ matrix.environment }}
-
     - name: Terraform Init
       run: terraform init -upgrade 
+      working-directory: ./environments/${{ matrix.environment }}
+      
+    - name: Terraform Providers
+      run: terraform providers
       working-directory: ./environments/${{ matrix.environment }}
 
     - name: Terraform Validate
