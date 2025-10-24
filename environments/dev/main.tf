@@ -37,10 +37,15 @@ resource "snowflake_schema" "schema" {
   database            = snowflake_database.primary.name
   name                = "YAMAMOTO_TF_FIRST_SCHEMA"
 }
-resource "snowflake_schema" "schema2" {
+# resource "snowflake_schema" "schema2" {
+#   # database            = module.primary.database_name
+#   database            = snowflake_database.primary.name
+#   name                = "YAMAMOTO_TF_SECOND_SCHEMA"
+# }
+resource "snowflake_schema" "schema3" {
   # database            = module.primary.database_name
   database            = snowflake_database.primary.name
-  name                = "YAMAMOTO_TF_SECOND_SCHEMA"
+  name                = "YAMAMOTO_TF_THIRD_SCHEMA"
 }
 
 # テーブル
