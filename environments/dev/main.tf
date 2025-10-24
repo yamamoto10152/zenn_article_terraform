@@ -35,7 +35,7 @@ provider "snowflake" {
 #   database_name = "YAMAMOTO_TF_FIRST_DATABASE"
 # }
 resource "snowflake_database" "primary" {
-  name = "YAMAMOTO_TF_FIRST_DATABASE"
+  name = "YAMAMOTO_TERRAFORM_DEV_DB"
 }
 
 # スキーマ
