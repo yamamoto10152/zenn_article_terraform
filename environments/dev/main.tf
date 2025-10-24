@@ -9,7 +9,7 @@ terraform {
   }
   backend "s3" {
     bucket         = "yamamoto-terraform-state-bucket"
-    key            = "snowflake-state/dev/zennarticle.tfstate"
+    key            = "snowflake-state/devzennarticle.tfstate"
     region         = "ap-northeast-1"
     dynamodb_table = "yamamoto-terraform-state-lock-table-dev"
     encrypt        = true
