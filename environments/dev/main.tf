@@ -7,6 +7,13 @@ terraform {
       version = "~> 2.0"
     }
   }
+  backend "s3" {
+    bucket         = "yamamoto-terraform-state-bucket"
+    key            = "snowflake-state/snowflake.tfstate"
+    region         = "ap-northeast-1"
+    dynamodb_table = "yamamoto-terraform-state-lock-table"
+    encrypt        = true
+  }  
 }
 
 provider "snowflake" {
