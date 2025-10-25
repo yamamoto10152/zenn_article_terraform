@@ -13,3 +13,8 @@ resource "snowflake_schema" "schema3" {
   database = snowflake_database.primary.name
   name     = "TF_THIRD_SCHEMA"
 }
+
+resource "snowflake_schema" "schema4" {
+  database = snowflake_database.primary.name
+  name     = "TF_FOURTH_SCHEMA"
+}
