@@ -20,7 +20,7 @@ module "yamamoto_terraform_db" {
   source = "../../modules/horizon_catalog/yamamoto_terraform_db"
   
   providers = {
-    snowflake.administrator = snowflake.administrator
+    snowflake = snowflake
   }
 }
 
