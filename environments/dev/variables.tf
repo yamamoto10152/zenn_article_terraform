@@ -44,3 +44,9 @@ variable "warehouse_type" {
   description = "Warehouse type"
   type        = string
 }
+
+variable "default_password" {
+  description = "Default password"
+  type        = string
+  sensitive   = true
+}

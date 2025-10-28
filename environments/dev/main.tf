@@ -22,4 +22,5 @@ module "yamamoto_terraform_db" {
 
 module "users_roles" {
   source = "../../modules/horizon_catalog/users_roles"
+  default_password = var.default_password
 }
