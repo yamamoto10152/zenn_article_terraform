@@ -1,4 +1,4 @@
-# 出力値定義
+# Outputs
 output "database_name" {
   description = "Name of the Snowflake database"
   value       = snowflake_database.primary.name
@@ -9,7 +9,8 @@ output "schema_names" {
   value = [
     snowflake_schema.schema.name,
     snowflake_schema.schema2.name,
-    snowflake_schema.schema3.name
+    snowflake_schema.schema3.name,
+    snowflake_schema.schema4.name
   ]
 }
 

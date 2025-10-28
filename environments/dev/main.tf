@@ -1,4 +1,4 @@
-# Dev環境のメイン設定
+# Terraform Configuration
 terraform {
   required_version = ">= 1.0"
   required_providers {
@@ -14,4 +14,8 @@ terraform {
     dynamodb_table = "yamamoto-terraform-state-lock-table-dev"
     encrypt        = true
   }  
+}
+
+module "yamamoto_terraform_db" {
+  source = "./horizon_catalog/yamamoto_terraform_db"
 }

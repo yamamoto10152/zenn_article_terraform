@@ -16,6 +16,7 @@ env:
   TF_VAR_snowflake_account_name: ${{ secrets.SNOWFLAKE_ACCOUNT_NAME }}
   TF_VAR_snowflake_user: ${{ secrets.SNOWFLAKE_USER }}
   TF_VAR_snowflake_password: ${{ secrets.SNOWFLAKE_PASSWORD }}
+  TF_VAR_default_password: ${{ secrets.DEFAULT_PASSWORD }}
 
 jobs:
   terraform:

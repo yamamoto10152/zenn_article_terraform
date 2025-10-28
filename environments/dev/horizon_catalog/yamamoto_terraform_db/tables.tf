@@ -1,4 +1,4 @@
-# テーブルリソース
+# Table Resource
 resource "snowflake_table" "table" {
   database                    = snowflake_schema.schema.database
   schema                      = snowflake_schema.schema.name

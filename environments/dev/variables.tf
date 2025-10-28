@@ -1,4 +1,4 @@
-# Dev環境の変数定義
+# Dev Variables
 variable "snowflake_organization_name" {
   description = "Snowflake organization name"
   type        = string
@@ -12,7 +12,6 @@ variable "snowflake_account_name" {
 variable "snowflake_user" {
   description = "Snowflake username"
   type        = string
-  default     = "YAMAMOTO_TERRAFORM_SVC"
 }
 
 variable "snowflake_password" {
@@ -24,31 +23,69 @@ variable "snowflake_password" {
 variable "snowflake_role" {
   description = "Snowflake role"
   type        = string
-  default     = "SYSADMIN"
 }
 
 variable "warehouse_size" {
   description = "Size of the Snowflake warehouse"
   type        = string
-  default     = "XSMALL"
 }
 
 variable "auto_suspend" {
   description = "Auto suspend time in minutes"
   type        = number
-  default     = 60
 }
 
 variable "auto_resume" {
   description = "Auto resume setting"
   type        = bool
-  default     = true
 }
 
 variable "warehouse_type" {
   description = "Warehouse type"
   type        = string
-  default     = "STANDARD"
 }
 
+variable "user_login_name" {
+  type      = string
+  sensitive = true
+  default   = "YAMAMOTO_TERRAFORM_USER"
+}
 
+variable "email" {
+  type      = string
+  sensitive = true
+  default   = "hoge@example.com"
+}
+
+variable "default_password" {
+  type      = string
+  sensitive = true
+}
+
+variable "first_name" {
+  type      = string
+  sensitive = true
+  default   = "hoge"
+}
+
+variable "last_name" {
+  type      = string
+  sensitive = true
+  default   = "hoge"
+}
+
+# variable "rsa_public_key" {
+#   type      = string
+#   sensitive = true
+# }
+
+# variable "rsa_public_key_2" {
+#   type      = string
+#   sensitive = true
+# }
+
+variable "service_name" {
+  type      = string
+  sensitive = true
+  default   = "YAMAMOTO_SERVICE"
+}
