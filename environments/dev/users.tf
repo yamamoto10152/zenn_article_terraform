@@ -6,7 +6,7 @@ resource "snowflake_user" "user" {
   comment               = "Controlled by Terraform"
   first_name            = var.first_name
   last_name             = var.last_name
-  password              = var.password
+  password              = var.default_password
   disabled              = "false"
   email                 = var.email
   default_warehouse     = snowflake_warehouse.warehouse.name
@@ -15,7 +15,6 @@ resource "snowflake_user" "user" {
   disable_mfa           = "false"
 }
 
-# with all attributes set
 resource "snowflake_service_user" "service_user" {
   name              = "Terraform Service User"
   login_name        = var.login_name

@@ -54,9 +54,10 @@ variable "user_login_name" {
 variable "email" {
   type      = string
   sensitive = true
+  default   = "hoge@example.com"
 }
 
-variable "password" {
+variable "default_password" {
   type      = string
   sensitive = true
 }
@@ -64,11 +65,13 @@ variable "password" {
 variable "first_name" {
   type      = string
   sensitive = true
+  default   = "hoge"
 }
 
 variable "last_name" {
   type      = string
   sensitive = true
+  default   = "hoge"
 }
 
 variable "rsa_public_key" {
@@ -81,7 +84,8 @@ variable "rsa_public_key_2" {
   sensitive = true
 }
 
-variable "login_name" {
+variable "service_name" {
   type      = string
   sensitive = true
+  default   = "YAMAMOTO_SERVICE"
 }
