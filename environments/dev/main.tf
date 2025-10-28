@@ -24,6 +24,6 @@ module "users_roles" {
   source = "../../modules/horizon_catalog/users_roles"
   default_password = var.default_password
   providers = {
-    snowflake.useradmin = snowflake.useradmin
+    snowflake = snowflake.useradmin
   }
 }
