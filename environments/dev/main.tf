@@ -18,12 +18,12 @@ terraform {
 
 module "yamamoto_terraform_db" {
   source = "../../modules/horizon_catalog/yamamoto_terraform_db"
-  providers = {
-    snowflake = snowflake.administrator
-  }
 }
 
 module "users_roles" {
   source = "../../modules/horizon_catalog/users_roles"
   default_password = var.default_password
+  providers = {
+    snowflake.useradmin = snowflake.useradmin
+  }
 }
