@@ -17,8 +17,8 @@ resource "snowflake_user" "user" {
 
 resource "snowflake_service_user" "service_user" {
   name              = "Terraform Service User"
-  login_name        = var.login_name
-  display_name      = var.login_name
+  login_name        = var.service_name
+  display_name      = var.service_name
   comment           = "Controlled by Terraform"
   disabled          = "false"
   default_warehouse = snowflake_warehouse.warehouse.name
