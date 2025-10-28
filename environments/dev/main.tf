@@ -17,5 +17,9 @@ terraform {
 }
 
 module "yamamoto_terraform_db" {
-  source = "./horizon_catalog/yamamoto_terraform_db"
+  source = "../../modules/horizon_catalog/yamamoto_terraform_db"
+}
+
+module "users_roles" {
+  source = "../../modules/horizon_catalog/users_roles"
 }
