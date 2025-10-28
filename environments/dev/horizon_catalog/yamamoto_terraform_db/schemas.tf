@@ -1,4 +1,4 @@
-# スキーマリソース
+# Schemas Resource
 resource "snowflake_schema" "schema" {
   database = snowflake_database.primary.name
   name     = "TF_FIRST_SCHEMA"

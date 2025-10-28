@@ -1,4 +1,4 @@
-# Dev環境の変数値
+# Dev Variables Values
 snowflake_role = "SYSADMIN"
 warehouse_size = "XSMALL"
 auto_suspend = 60

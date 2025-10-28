@@ -1,4 +1,4 @@
-# Dev環境のメイン設定
+# Terraform Configuration
 terraform {
   required_version = ">= 1.0"
   required_providers {
