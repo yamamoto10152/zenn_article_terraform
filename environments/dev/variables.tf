@@ -74,15 +74,15 @@ variable "last_name" {
   default   = "hoge"
 }
 
-variable "rsa_public_key" {
-  type      = string
-  sensitive = true
-}
+# variable "rsa_public_key" {
+#   type      = string
+#   sensitive = true
+# }
 
-variable "rsa_public_key_2" {
-  type      = string
-  sensitive = true
-}
+# variable "rsa_public_key_2" {
+#   type      = string
+#   sensitive = true
+# }
 
 variable "service_name" {
   type      = string
