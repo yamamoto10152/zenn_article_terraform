@@ -45,4 +45,43 @@ variable "warehouse_type" {
   type        = string
 }
 
+variable "user_login_name" {
+  type      = string
+  sensitive = true
+  default   = "YAMAMOTO_TERRAFORM_USER"
+}
 
+variable "email" {
+  type      = string
+  sensitive = true
+}
+
+variable "password" {
+  type      = string
+  sensitive = true
+}
+
+variable "first_name" {
+  type      = string
+  sensitive = true
+}
+
+variable "last_name" {
+  type      = string
+  sensitive = true
+}
+
+variable "rsa_public_key" {
+  type      = string
+  sensitive = true
+}
+
+variable "rsa_public_key_2" {
+  type      = string
+  sensitive = true
+}
+
+variable "login_name" {
+  type      = string
+  sensitive = true
+}
