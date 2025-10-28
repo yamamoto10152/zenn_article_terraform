@@ -15,3 +15,7 @@ terraform {
     encrypt        = true
   }  
 }
+
+module "yamamoto_terraform_db" {
+  source = "./horizon_catalog/yamamoto_terraform_db"
+}
