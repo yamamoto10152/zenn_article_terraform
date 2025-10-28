@@ -1,5 +1,6 @@
 # User Resource
 resource "snowflake_user" "user" {
+  provider              = snowflake.useradmin
   name                  = "user001"
   login_name            = var.user_login_name
   display_name          = var.user_login_name
@@ -16,6 +17,7 @@ resource "snowflake_user" "user" {
 }
 
 resource "snowflake_service_user" "service_user" {
+  provider          = snowflake.useradmin
   name              = "Terraform Service User"
   login_name        = var.service_name
   display_name      = var.service_name

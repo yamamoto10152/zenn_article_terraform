@@ -4,7 +4,7 @@ provider "snowflake" {
   account_name      = var.snowflake_account_name
   user              = var.snowflake_user
   token             = var.snowflake_password
-  role              = var.snowflake_role
+  role              = "SYSADMIN"
   authenticator     = "PROGRAMMATIC_ACCESS_TOKEN"
   
   # プレビュー機能を有効化
@@ -12,4 +12,24 @@ provider "snowflake" {
     "snowflake_table_resource",
     "snowflake_api_integration_resource",
   ]
+}
+
+provider "snowflake" {
+  alias             = "administrator"
+  organization_name = var.snowflake_organization_name
+  account_name      = var.snowflake_account_name
+  user              = var.snowflake_user
+  token             = var.snowflake_password
+  role              = "ACCOUNTADMIN"
+  authenticator     = "PROGRAMMATIC_ACCESS_TOKEN"
+}
+
+provider "snowflake" {
+  alias             = "useradmin"
+  organization_name = var.snowflake_organization_name
+  account_name      = var.snowflake_account_name
+  user              = var.snowflake_user
+  token             = var.snowflake_password
+  role              = "USERADMIN"
+  authenticator     = "PROGRAMMATIC_ACCESS_TOKEN"
 }
