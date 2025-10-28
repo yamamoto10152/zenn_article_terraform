@@ -23,7 +23,7 @@ resource "snowflake_service_user" "service_user" {
   display_name      = var.service_name
   comment           = "Controlled by Terraform"
   disabled          = "false"
-  default_warehouse = snowflake_warehouse.warehouse.name
+  default_warehouse = var.default_warehouse_name
   default_role      = "PUBLIC"
   # rsa_public_key    = var.rsa_public_key
   # rsa_public_key_2  = var.rsa_public_key_2
