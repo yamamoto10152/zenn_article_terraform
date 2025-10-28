@@ -10,7 +10,7 @@ resource "snowflake_user" "user" {
   password              = var.default_password
   disabled              = "false"
   email                 = var.email
-  default_warehouse     = snowflake_warehouse.warehouse.name
+  default_warehouse     = var.default_warehouse_name
   default_role          = "PUBLIC"
   must_change_password  = "true"
   disable_mfa           = "false"

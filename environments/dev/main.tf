@@ -27,6 +27,7 @@ module "yamamoto_terraform_db" {
 module "users_roles" {
   source = "../../modules/horizon_catalog/users_roles"
   default_password = var.default_password
+  default_warehouse_name = snowflake_warehouse.warehouse.name
   providers = {
     snowflake.useradmin = snowflake.useradmin
   }

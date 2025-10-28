@@ -33,3 +33,8 @@ variable "service_name" {
   sensitive = true
   default   = "YAMAMOTO_SERVICE"
 }
+
+variable "default_warehouse_name" {
+  type        = string
+  description = "Name of the default warehouse for users"
+}
