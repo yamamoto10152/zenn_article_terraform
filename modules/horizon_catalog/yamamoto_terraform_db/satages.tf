@@ -4,7 +4,9 @@ resource "snowflake_stage" "s3_stage" {
   url         = "s3://${var.s3_bucket_name}/snowpipe/"
   database    = snowflake_database.primary.name
   schema      = snowflake_schema.schema.name
-  storage_integration = var.s3_integration_name
+  # Some provider outputs include surrounding quotes (e.g. "S3_INTEGRATION").
+  # Strip any double quotes to avoid SQL compilation errors.
+  storage_integration = replace(var.s3_integration_name, "\"", "")
 }
 
 resource "snowflake_pipe" "pipe" {
