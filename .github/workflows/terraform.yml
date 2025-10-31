@@ -18,6 +18,9 @@ env:
   TF_VAR_snowflake_password: ${{ secrets.SNOWFLAKE_PASSWORD }}
   TF_VAR_default_password: ${{ secrets.DEFAULT_PASSWORD }}
 
+  # AWS
+  TF_VAR_s3_role_arn: ${{ secrets.S3_ROLE_ARN }}
+
 jobs:
   terraform:
     name: 'Terraform'

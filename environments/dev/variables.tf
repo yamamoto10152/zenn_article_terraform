@@ -50,3 +50,8 @@ variable "default_password" {
   type        = string
   sensitive   = true
 }
+
+variable "s3_role_arn" {
+  description = "S3 role ARN"
+  type        = string
+}
