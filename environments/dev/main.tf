@@ -33,3 +33,13 @@ module "users_roles" {
     snowflake.useradmin = snowflake.useradmin
   }
 }
+
+module "integrations" {
+  source = "../../modules/integrations"
+  s3_integration_arn = var.s3_role_arn
+  s3_bucket_name = var.s3_bucket_name
+
+  providers = {
+    snowflake = snowflake
+  }
+}
