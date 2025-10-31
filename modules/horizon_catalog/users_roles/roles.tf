@@ -23,12 +23,14 @@ resource "snowflake_grant_account_role" "g2" {
 
 # S3 Role and Grants
 resource "snowflake_database_role" "s3_role" {
+  provider = snowflake.useradmin
   name     = "S3_STAGE_ROLE"
   comment  = "For yamamoto10152"
   database = var.database_name
 }
 
 resource "snowflake_grant_privileges_to_database_role" "s3_db_usage" {
+  provider = snowflake.useradmin
   privileges         = ["USAGE"]
   database_role_name = snowflake_database_role.s3_role.fully_qualified_name
   on_database        = snowflake_database_role.s3_role.database
@@ -42,6 +44,7 @@ resource "snowflake_grant_privileges_to_database_role" "s3_db_usage" {
 }
 
 resource "snowflake_grant_privileges_to_database_role" "s3_table_privs" {
+  provider = snowflake.useradmin
   privileges         = ["SELECT", "INSERT"]
   database_role_name = snowflake_database_role.s3_role.fully_qualified_name
   on_schema_object {
@@ -53,6 +56,7 @@ resource "snowflake_grant_privileges_to_database_role" "s3_table_privs" {
 }
 
 # resource "snowflake_grant_privileges_to_database_role" "s3_stage_usage" {
+#   provider = snowflake.useradmin
 #   privileges         = ["USAGE"]
 #   database_role_name = snowflake_database_role.s3_role.fully_qualified_name
 #   on_schema_object {

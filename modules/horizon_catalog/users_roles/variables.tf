@@ -50,7 +50,7 @@ variable "database_name" {
 }
 
 variable "schema_name" {
-  type        = fully_qualified_name
+  type        = string
   description = "Target schema fully qualified name for grants"
 }
 
@@ -60,7 +60,7 @@ variable "table_name" {
 }
 
 variable "stage_name" {
-  type        = fully_qualified_name
+  type        = string
   description = "Target stage name for grants"
 }
 
