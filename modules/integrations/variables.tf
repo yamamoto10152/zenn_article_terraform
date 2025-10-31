@@ -1,4 +1,9 @@
 variable "s3_integration_arn" {
-  description = "S3 integration ARN"
+  description = "IAM role ARN used by Snowflake storage integration"
+  type        = string
+}
+
+variable "s3_bucket_name" {
+  description = "S3 bucket name"
   type        = string
 }

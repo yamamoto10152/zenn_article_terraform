@@ -4,7 +4,7 @@ resource "snowflake_storage_integration" "s3_integration" {
   comment                   = "AWS S3 integration"
   type                      = "EXTERNAL_STAGE"
   enabled                   = true
-  storage_allowed_locations = ["${var.s3_integration_arn}/snowpipe/"]
+  storage_allowed_locations = ["s3://${var.s3_bucket_name}/snowpipe/"]
   storage_provider     = "S3"
   storage_aws_role_arn = var.s3_integration_arn
 }

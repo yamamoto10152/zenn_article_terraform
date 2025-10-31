@@ -55,3 +55,8 @@ variable "s3_role_arn" {
   description = "S3 role ARN"
   type        = string
 }
+
+variable "s3_bucket_name" {
+  description = "S3 bucket name"
+  type        = string
+}
