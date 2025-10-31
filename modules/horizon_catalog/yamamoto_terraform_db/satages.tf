@@ -1,7 +1,7 @@
 resource "snowflake_stage" "s3_stage" {
   name        = "YAMAMOTO_S3_STAGE"
   comment     = "For yamamoto10152"
-  url         = "s3://${var.s3_bucket_name}/snowpipe"
+  url         = "s3://${var.s3_bucket_name}/snowpipe/"
   database    = snowflake_database.primary.name
   schema      = snowflake_schema.schema.name
   storage_integration = var.s3_integration_name
