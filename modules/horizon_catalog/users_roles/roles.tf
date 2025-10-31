@@ -37,7 +37,7 @@ resource "snowflake_grant_privileges_to_database_role" "s3_db_usage" {
   }
   on_schema_object {
     object_type = "STAGE"
-    object_name = var.stage_name.fully_qualified_name
+    object_name = var.stage_name
   }
 }
 
@@ -47,7 +47,7 @@ resource "snowflake_grant_privileges_to_database_role" "s3_table_privs" {
   on_schema_object {
     all {
       object_type_plural = "TABLES"
-      in_schema          = var.schema_name.fully_qualified_name
+      in_schema          = var.schema_name
     }
   }
 }
@@ -57,7 +57,7 @@ resource "snowflake_grant_privileges_to_database_role" "s3_table_privs" {
 #   database_role_name = snowflake_database_role.s3_role.fully_qualified_name
 #   on_schema_object {
 #     object_type = "STAGE"
-#     object_name = var.stage_name.fully_qualified_name
+#     object_name = var.stage_name
 #   }
 # }
 
