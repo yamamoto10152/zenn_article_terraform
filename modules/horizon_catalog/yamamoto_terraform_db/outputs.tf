@@ -18,3 +18,13 @@ output "table_name" {
   description = "Name of the Snowflake table"
   value       = snowflake_table.table.name
 }
+
+output "stage_name" {
+  description = "Name of the Snowflake stage"
+  value       = snowflake_stage.s3_stage.name
+}
+
+output "pipe_name" {
+  description = "Name of the Snowflake pipe"
+  value       = snowflake_pipe.pipe.name
+}
