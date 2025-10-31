@@ -20,7 +20,6 @@ env:
 
   # AWS
   TF_VAR_s3_role_arn: ${{ secrets.S3_ROLE_ARN }}
-  TF_VAR_s3_bucket_name: ${{ secrets.S3_BUCKET_NAME }}
 
 jobs:
   terraform:
