@@ -34,9 +34,21 @@ resource "snowflake_grant_privileges_to_database_role" "s3_db_usage" {
   privileges         = ["USAGE"]
   database_role_name = snowflake_database_role.s3_role.fully_qualified_name
   on_database        = snowflake_database_role.s3_role.database
+}
+
+resource "snowflake_grant_privileges_to_database_role" "s3_schema_usage" {
+  provider = snowflake.useradmin
+  privileges         = ["USAGE"]
+  database_role_name = snowflake_database_role.s3_role.fully_qualified_name
   on_schema {
     schema_name = var.schema_name
   }
+}
+
+resource "snowflake_grant_privileges_to_database_role" "s3_stage_usage" {
+  provider = snowflake.useradmin
+  privileges         = ["USAGE"]
+  database_role_name = snowflake_database_role.s3_role.fully_qualified_name
   on_schema_object {
     object_type = "STAGE"
     object_name = var.stage_name
