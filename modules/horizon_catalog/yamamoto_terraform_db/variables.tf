@@ -1,0 +1,9 @@
+variable "s3_bucket_name" {
+  description = "S3 bucket name"
+  type        = string
+}
+
+variable "s3_integration_name" {
+  description = "Name of the Snowflake storage integration"
+  type        = string
+}

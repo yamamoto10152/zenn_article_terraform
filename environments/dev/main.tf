@@ -16,9 +16,21 @@ terraform {
   }  
 }
 
+module "integrations" {
+  source = "../../modules/integrations"
+  s3_integration_arn = var.s3_role_arn
+  s3_bucket_name = var.s3_bucket_name
+
+  providers = {
+    snowflake = snowflake
+  }
+}
+
 module "yamamoto_terraform_db" {
   source = "../../modules/horizon_catalog/yamamoto_terraform_db"
-  
+  s3_integration_name = module.integrations.s3_integration_name
+  s3_bucket_name = var.s3_bucket_name
+
   providers = {
     snowflake = snowflake
   }
@@ -31,15 +43,5 @@ module "users_roles" {
   
   providers = {
     snowflake.useradmin = snowflake.useradmin
-  }
-}
-
-module "integrations" {
-  source = "../../modules/integrations"
-  s3_integration_arn = var.s3_role_arn
-  s3_bucket_name = var.s3_bucket_name
-
-  providers = {
-    snowflake = snowflake
   }
 }
