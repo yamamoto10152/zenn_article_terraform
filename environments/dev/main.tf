@@ -36,19 +36,18 @@ module "yamamoto_terraform_db" {
   }
 }
 
-module "users_roles" {
-  source = "../../modules/horizon_catalog/users_roles"
-  main_user_name = var.snowflake_user
-  default_password = var.default_password
-  default_warehouse_name = snowflake_warehouse.warehouse.name
-  database_name = module.yamamoto_terraform_db.database_name
-  schema_name   = module.yamamoto_terraform_db.schema_names[0]
-  table_name    = module.yamamoto_terraform_db.table_name
-  stage_name    = module.yamamoto_terraform_db.stage_name
-  pipe_name     = module.yamamoto_terraform_db.pipe_name
-  
-  providers = {
-    snowflake = snowflake
-    snowflake.useradmin = snowflake.useradmin
-  }
-}
+# module "users_roles" {
+#   source = "../../modules/horizon_catalog/users_roles"
+#   main_user_name = var.snowflake_user
+#   default_password = var.default_password
+#   default_warehouse_name = snowflake_warehouse.warehouse.name
+#   database_name = module.yamamoto_terraform_db.database_name
+#   schema_name   = module.yamamoto_terraform_db.schema_names[0]
+#   table_name    = module.yamamoto_terraform_db.table_name
+#   stage_name    = module.yamamoto_terraform_db.stage_name
+#   pipe_name     = module.yamamoto_terraform_db.pipe_name
+#   providers = {
+#     snowflake = snowflake
+#     snowflake.useradmin = snowflake.useradmin
+#   }
+# }
