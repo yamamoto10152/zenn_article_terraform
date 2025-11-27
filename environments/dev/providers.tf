@@ -2,7 +2,7 @@
 provider "snowflake" {
   organization_name = var.snowflake_organization_name
   account_name      = var.snowflake_account_name
-  user              = var.snowflake_user
+  user              = "TERRAFORM"
   token             = var.snowflake_password
   role              = "SYSADMIN"
   authenticator     = "PROGRAMMATIC_ACCESS_TOKEN"
@@ -21,7 +21,7 @@ provider "snowflake" {
   alias             = "accountadmin"
   organization_name = var.snowflake_organization_name
   account_name      = var.snowflake_account_name
-  user              = var.snowflake_user
+  user              = "TERRAFORM"
   token             = var.snowflake_password
   role              = "ACCOUNTADMIN"
   authenticator     = "PROGRAMMATIC_ACCESS_TOKEN"
@@ -31,8 +31,8 @@ provider "snowflake" {
   alias             = "useradmin"
   organization_name = var.snowflake_organization_name
   account_name      = var.snowflake_account_name
-  user              = var.snowflake_user
+  user              = "TERRAFORM"
   token             = var.snowflake_password
-  role              = "SECURITYADMIN"
+  role              = "USERADMIN"
   authenticator     = "PROGRAMMATIC_ACCESS_TOKEN"
 }
