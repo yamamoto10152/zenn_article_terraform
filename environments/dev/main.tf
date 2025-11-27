@@ -46,7 +46,6 @@ module "users_roles" {
   table_name    = module.yamamoto_terraform_db.table_name
   stage_name    = module.yamamoto_terraform_db.stage_name
   pipe_name     = module.yamamoto_terraform_db.pipe_name
-  
   providers = {
     snowflake = snowflake
     snowflake.useradmin = snowflake.useradmin
