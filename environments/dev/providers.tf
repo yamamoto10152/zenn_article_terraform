@@ -28,11 +28,11 @@ provider "snowflake" {
 }
 
 provider "snowflake" {
-  alias             = "useradmin"
+  alias             = "securityadmin"
   organization_name = var.snowflake_organization_name
   account_name      = var.snowflake_account_name
   user              = var.snowflake_user
   token             = var.snowflake_password
-  role              = "USERADMIN"
+  role              = "SECURITYADMIN"
   authenticator     = "PROGRAMMATIC_ACCESS_TOKEN"
 }
