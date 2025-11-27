@@ -50,16 +50,12 @@ jobs:
         role-to-assume: ${{secrets.ASSUME_ROLE_ARN}}
         aws-region: ap-northeast-1
 
-    - name: Terraform Refresh
-      run: terraform refresh
-      working-directory: ./environments/${{ matrix.environment }}
-
     - name: Terraform Format
       run: terraform fmt -recursive
       working-directory: ./environments/${{ matrix.environment }}
 
     - name: Terraform Init
-      run: terraform init -upgrade 
+      run: terraform init -upgrade -reconfigure
       working-directory: ./environments/${{ matrix.environment }}
       
     - name: Terraform Providers
