@@ -9,15 +9,15 @@ resource "snowflake_stage" "s3_stage" {
   storage_integration = replace(var.s3_integration_name, "\"", "")
 }
 
-resource "snowflake_pipe" "pipe" {
-  name     = "YAMAMOTO_PIPE"
-  comment = "For yamamoto10152"
-  database = snowflake_database.primary.name
-  schema   = snowflake_schema.schema.name
-  auto_ingest    = true
+# resource "snowflake_pipe" "pipe" {
+#   name     = "YAMAMOTO_PIPE"
+#   comment = "For yamamoto10152"
+#   database = snowflake_database.primary.name
+#   schema   = snowflake_schema.schema.name
+#   auto_ingest    = true
 
-  copy_statement = "copy into ${snowflake_table.table.fully_qualified_name} from @${snowflake_stage.s3_stage.fully_qualified_name}"
-}
+#   copy_statement = "copy into ${snowflake_table.table.fully_qualified_name} from @${snowflake_stage.s3_stage.fully_qualified_name}"
+# }
 
 # resource "snowflake_pipe" "pipe_with_stage_change_trigger" {
 #   database = snowflake_stage.stage.database
