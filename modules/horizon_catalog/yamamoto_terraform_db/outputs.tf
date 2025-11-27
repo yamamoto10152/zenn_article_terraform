@@ -24,7 +24,7 @@ output "stage_name" {
   value       = snowflake_stage.s3_stage.fully_qualified_name
 }
 
-output "pipe_name" {
-  description = "Name of the Snowflake pipe"
-  value       = snowflake_pipe.pipe.fully_qualified_name
-}
+# output "pipe_name" {
+#   description = "Name of the Snowflake pipe"
+#   value       = snowflake_pipe.pipe.fully_qualified_name
+# }
